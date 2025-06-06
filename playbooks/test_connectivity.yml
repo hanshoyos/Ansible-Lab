@@ -1,0 +1,16 @@
+---
+- name: Test SSH connectivity to all Linux targets
+  hosts: "{{ linux_targets | default([]) + windows_targets | default([]) }}"
+  gather_facts: false
+  vars:
+    ansible_user: "{{ ssh_user }}"
+    ansible_ssh_pass: "{{ ssh_pass }}"
+    ansible_connection: ssh
+  tasks:
+    - name: Run 'whoami' to verify SSH connection
+      shell: whoami
+      register: result
+
+    - name: Show connection result
+      debug:
+        msg: "Successfully connected to {{ inventory_hostname }} as {{ result.stdout }}"
