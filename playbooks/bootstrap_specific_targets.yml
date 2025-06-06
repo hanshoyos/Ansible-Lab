@@ -1,0 +1,16 @@
+---
+- name: Bootstrap: Build 'specific_targets' group
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - inventory/default_vars.yml
+  tasks:
+    - name: Add specific_targets to 'specific_targets' group
+      add_host:
+        name: "{{ item }}"
+        groups: specific_targets
+        ansible_user: "{{ ssh_user }}"
+        ansible_ssh_pass: "{{ ssh_pass }}"
+        ansible_connection: ssh
+      loop: "{{ specific_targets | default([]) }}"
+      when: (specific_targets | default([])) | length > 0
