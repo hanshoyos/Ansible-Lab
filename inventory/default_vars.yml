@@ -1,10 +1,14 @@
 linux_targets:
-  - 192.168.10.11
-  - 192.168.10.12
+  # If you have Linux machines, list them here, or leave as empty list
+  # - 192.168.10.11
+  # - 192.168.10.12
 
 windows_targets:
-  - 192.168.10.21
+  - 192.168.2.13
 
-linux_user: ubuntu
-windows_user: Administrator
-windows_pass: MyWinPassword
+# This section is for any hosts you want to connect via SSH, regardless of OS
+ssh_user: admin
+ssh_pass: P@ssw0rd
+
+# Remove the previous windows_user and windows_pass if they existed,
+# since you are using SSH everywhere
