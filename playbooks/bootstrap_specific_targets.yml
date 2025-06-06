@@ -13,4 +13,4 @@
         ansible_ssh_pass: "{{ ssh_pass }}"
         ansible_connection: ssh
       loop: "{{ specific_targets | default([]) }}"
-      when: (specific_targets | default([])) | length > 
+      when: (specific_targets | default([])) | length > 0
