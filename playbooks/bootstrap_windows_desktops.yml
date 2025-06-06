@@ -1,0 +1,16 @@
+---
+- name: Bootstrap: Build 'windows_desktops' group
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - inventory/default_vars.yml
+  tasks:
+    - name: Add windows_desktops to 'windows_desktops' group
+      add_host:
+        name: "{{ item }}"
+        groups: windows_desktops
+        ansible_user: "{{ ssh_user }}"
+        ansible_ssh_pass: "{{ ssh_pass }}"
+        ansible_connection: ssh
+      loop: "{{ windows_desktops | default([]) }}"
+      when: (windows_desktops | default([])) | length > 0
