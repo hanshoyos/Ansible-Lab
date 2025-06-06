@@ -1,0 +1,16 @@
+---
+- name: Bootstrap: Build targets group and load variables
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - inventory/default_vars.yml
+  tasks:
+    - name: Add all target hosts to 'targets'
+      add_host:
+        name: "{{ item }}"
+        groups: targets
+        ansible_user: "{{ ssh_user }}"
+        ansible_ssh_pass: "{{ ssh_pass }}"
+        ansible_connection: ssh
+      loop: "{{ (linux_targets | default([])) + (windows_targets | default([])) }}"
+      when: ((linux_targets | default([])) + (windows_targets | default([]))) | length > 0
