@@ -1,0 +1,11 @@
+---
+- name: Reboot Windows
+  hosts: "{{ windows_targets }}"
+  vars:
+    ansible_user: "{{ windows_user }}"
+    ansible_password: "{{ windows_pass }}"
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+  tasks:
+    - name: Reboot Windows VM
+      win_reboot:

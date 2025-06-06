@@ -1,0 +1,12 @@
+---
+- name: Orchestrate Lab Automation
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - inventory/default_vars.yml   # Change this line to switch scenarios
+  tasks:
+    - name: Update all Linux VMs
+      import_playbook: playbooks/linux_update.yml
+
+    - name: Reboot all Windows VMs
+      import_playbook: playbooks/win_reboot.yml

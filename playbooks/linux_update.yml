@@ -1,0 +1,10 @@
+---
+- name: Update Linux
+  hosts: "{{ linux_targets }}"
+  become: true
+  vars:
+    ansible_user: "{{ linux_user }}"
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
