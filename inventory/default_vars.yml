@@ -1,14 +1,29 @@
+# All Linux hosts
 linux_targets:
-  # If you have Linux machines, list them here, or leave as empty list
-  # - 192.168.10.11
-  # - 192.168.10.12
+  - 192.168.2.11
+  - 192.168.2.12
 
+# All Windows hosts
 windows_targets:
-  - 192.168.2.13
+  - 192.168.2.21  # Desktop
+  - 192.168.2.22  # Desktop
+  - 192.168.2.31  # Server
+  - 192.168.2.32  # Server
 
-# This section is for any hosts you want to connect via SSH, regardless of OS
+# Windows desktops (subset of windows_targets)
+windows_desktops:
+  - 192.168.2.21
+  - 192.168.2.22
+
+# Windows servers (subset of windows_targets)
+windows_servers:
+  - 192.168.2.31
+  - 192.168.2.32
+
 ssh_user: admin
 ssh_pass: P@ssw0rd
 
-# Remove the previous windows_user and windows_pass if they existed,
-# since you are using SSH everywhere
+# Specific, ad-hoc subset for single tasks
+specific_targets:
+  - 192.168.2.21
+  - 192.168.2.12
