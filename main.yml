@@ -3,7 +3,7 @@
 # Uncomment ONLY ONE of these at a time (or copy/paste for your own group combos).
 
 # All Linux and Windows hosts
-- import_playbook: playbooks/bootstrap_lab.yml
+#- import_playbook: playbooks/bootstrap_lab.yml
 
 # Only Windows Desktops
 # - import_playbook: playbooks/bootstrap_windows_desktops.yml
@@ -12,16 +12,16 @@
 # - import_playbook: playbooks/bootstrap_windows_servers.yml
 
 # Only Specific Targets
-# - import_playbook: playbooks/bootstrap_specific_targets.yml
+- import_playbook: playbooks/bootstrap_specific_targets.yml
 
 # ==== TASK: CHOOSE WHAT YOU WANT TO RUN ===========
 # Uncomment ONLY ONE of these at a time (or add more for your own tasks).
 
-- import_playbook: playbooks/test_connectivity_all.yml
+# - import_playbook: playbooks/test_connectivity_all.yml
 
 # - import_playbook: playbooks/test_connectivity_desktops.yml
 # - import_playbook: playbooks/test_connectivity_servers.yml
-# - import_playbook: playbooks/test_connectivity_specific.yml
+- import_playbook: playbooks/test_connectivity_specific.yml
 
 # Example for a real task:
 # - import_playbook: playbooks/install_chrome_on_targets.yml
