@@ -1,0 +1,12 @@
+---
+- name: Test SSH connectivity to Specific Targets
+  hosts: specific_targets
+  gather_facts: false
+  tasks:
+    - name: Run 'whoami' to verify SSH connection
+      shell: whoami
+      register: result
+
+    - name: Show connection result
+      debug:
+        msg: "Successfully connected to {{ inventory_hostname }} as {{ result.stdout }}"
