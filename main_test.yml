@@ -1,0 +1,9 @@
+---
+- name: Test SSH connectivity to all targets in this scenario
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - inventory/default_vars.yml    # Change to another vars file if you wish
+  tasks:
+    - name: Include the test connectivity playbook
+      import_playbook: playbooks/test_connectivity.yml
