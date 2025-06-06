@@ -1,9 +1,0 @@
-# vars.yml
-linux_targets:
-  - 192.168.10.11
-  - 192.168.10.12
-windows_targets:
-  - 192.168.10.21
-linux_user: ubuntu
-windows_user: Administrator
-windows_pass: MyWinPassword
