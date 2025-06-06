@@ -25,5 +25,4 @@ ssh_pass: P@ssw0rd
 
 # Specific, ad-hoc subset for single tasks
 specific_targets:
-  - 192.168.2.21
-  - 192.168.2.12
+  - 192.168.2.136
