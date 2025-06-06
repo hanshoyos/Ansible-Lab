@@ -1,0 +1,16 @@
+---
+- name: Bootstrap: Build 'windows_servers' group
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - inventory/default_vars.yml
+  tasks:
+    - name: Add windows_servers to 'windows_servers' group
+      add_host:
+        name: "{{ item }}"
+        groups: windows_servers
+        ansible_user: "{{ ssh_user }}"
+        ansible_ssh_pass: "{{ ssh_pass }}"
+        ansible_connection: ssh
+      loop: "{{ windows_servers | default([]) }}"
+      when: (windows_servers | default([])) | length > 0
