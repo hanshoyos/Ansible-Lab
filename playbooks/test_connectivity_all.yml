@@ -1,11 +1,7 @@
 ---
-- name: Test SSH connectivity to all Linux targets
-  hosts: "{{ linux_targets | default([]) + windows_targets | default([]) }}"
+- name: Test SSH connectivity to all Windows and Linux hosts
+  hosts: targets
   gather_facts: false
-  vars:
-    ansible_user: "{{ ssh_user }}"
-    ansible_ssh_pass: "{{ ssh_pass }}"
-    ansible_connection: ssh
   tasks:
     - name: Run 'whoami' to verify SSH connection
       shell: whoami
