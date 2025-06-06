@@ -1,9 +1,2 @@
 ---
-- name: Test SSH connectivity to all targets in this scenario
-  hosts: localhost
-  gather_facts: false
-  vars_files:
-    - inventory/default_vars.yml
-
-# This must NOT be indented under tasks:
-import_playbook: playbooks/test_connectivity.yml
+- import_playbook: playbooks/test_connectivity.yml
